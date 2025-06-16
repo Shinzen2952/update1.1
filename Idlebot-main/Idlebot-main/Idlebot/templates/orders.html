@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='web.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #34495e;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+
+        tr:hover {
+            background-color: #d6eaf8;
+        }
+
+        img {
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            padding: 6px 10px;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+            background-color: #f9f9f9;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 6px 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #1e8449;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>📦 All Orders</h1>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Book Title</th>
+                <th>Image</th>
+                <th>Order Time</th>
+                <th>Status</th>
+                <th>Update Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order[2] }}</td>
+                <td>{{ order[3] }}</td>
+                <td><img src="{{ order[4] }}" alt="{{ order[3] }}" width="80"></td>
+                <td>{{ order[5] }}</td>
+                <td>{{ order[6] }}</td>
+                <td>
+                    <form method="POST" action="/update_status">
+                        <input type="hidden" name="order_id" value="{{ order[0] }}">
+                        <select name="status">
+                            <option value="In Process" {% if order[6] == 'In Process' %}selected{% endif %}>In Process</option>
+                            <option value="Finished" {% if order[6] == 'Finished' %}selected{% endif %}>Finished</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

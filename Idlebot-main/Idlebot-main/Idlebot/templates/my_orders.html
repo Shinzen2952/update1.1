@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='web.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .orders-container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .order {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .order img {
+            width: 80px;
+            border-radius: 8px;
+        }
+
+        .order-info {
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+
+        .status {
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: white;
+        }
+
+        .status.in-process {
+            background-color: #f39c12;
+        }
+
+        .status.finished {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 My Orders</h1>
+    <div class="orders-container">
+        {% for order in orders %}
+        <div class="order">
+            <img src="{{ order['img'] }}" alt="{{ order['title'] }}">
+            <div class="order-info">
+                <h3>{{ order['title'] }}</h3>
+                <p>Ordered on: {{ order['order_time'] }}</p>
+            </div>
+            <span class="status {% if order['status'] == 'In Process' %}in-process{% else %}finished{% endif %}">
+                {{ order['status'] }}
+            </span>
+        </div>
+        {% else %}
+        <p style="text-align:center;">You have no orders yet.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

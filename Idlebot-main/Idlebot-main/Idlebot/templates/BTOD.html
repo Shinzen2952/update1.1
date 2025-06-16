@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Borrowing System</title>
+
+    <link rel="icon" type="image/png" href="book.png">
+
+   <head> 
+    <link rel ="stylesheet" type="text/css"  href="{{url_for('static', filename='web.css')}}">
+</head> 
+<body class="botd">
+    <div class="navbar">
+        <a href="/Home" id="homeLink" class="active">Home</a>
+        <a href="" id="authorizedPersonnelLink">Authorized Personnel</a>
+        <a href="/login" id="loginLink">Login</a>
+        <a href="#" id="registerLink">Register</a>
+        <a href="/Shelf" id="shelfLink">Shelf</a>
+    </div>
+
+    <h1>Book Borrowing System</h1>
+
+
+
+</style>
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond the Ocean Door</title>
+  <style>
+
+ 
+    .book-card {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+
+    .book-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .cover {
+      flex: 0 0 200px;
+    }
+    .cover img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .info h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25em;
+      color: #1a3c40;
+    }
+    .info h2 {
+      font-size: 1.25rem;
+      font-weight: normal;
+      margin-bottom: 0.75em;
+      color: #4a6b6f;
+    }
+
+
+    .meta {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    .meta li {
+      margin-bottom: 0.5em;
+      font-size: 0.95rem;
+    }
+    .meta li span {
+      font-weight: bold;
+    }
+
+
+    .description {
+      margin-top: 1rem;
+    }
+    .description h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #1a3c40;
+    }
+    .description p {
+      margin-bottom: 1em;
+      text-align: justify;
+    }
+
+
+    .links a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #fff;
+      background: #1a3c40;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+    }
+    .links a:hover {
+      background: #163234;
+    }
+
+  
+    @media (max-width: 600px) {
+      .book-header { flex-direction: column; align-items: center; }
+      .cover { flex: 0 0 100%; max-width: 300px; }
+      .info h1 { text-align: center; }
+      .info h2 { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <article class="book-card">
+    <div class="book-header">
+      <div class="cover">
+        <img src="https://images.openai.com/thumbnails/eb40bb182f498d1117421ffc9a386c7d.jpeg" alt="Beyond the Ocean Door book cover">
+      </div>
+      <div class="info">
+        <h1>Beyond the Ocean Door</h1>
+        <h2>by Amisha Sathi</h2>
+        <ul class="meta">
+          <li><span>Genre:</span> Young Adult / Fantasy</li>
+          <li><span>Published:</span> December 21, 2024</li>
+          <li><span>Pages:</span> 522</li>
+          <li><span>Format:</span> Kindle Edition</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="description">
+      <h3>Synopsis</h3>
+      <p>In every mind exists an “Ocean Door” — a hidden gateway to the subconscious world, and only two telepaths can control it. Kallista, a young telepath with no memory of her early life, awakens in the secluded Vale and has been trained by the mysterious Vow for years. Determined to escape, she faces pipe‑smoking spies who vanish from memory, a red‑haired ghost in the west woods, and a strange boy with uncanny powers. To break free, she must master the peculiar ability to infiltrate the subconscious through a blue door and unravel the Vale’s deepest secrets.</p>
+      <p><em>“Beyond the Ocean Door is a brand new coming‑of‑age fantasy adventure, featuring a unique telepathy‑based magic system and a thrilling 'prison break' story.”</em> :contentReference[oaicite:2]{index=2}</p>
+    </section>
+
+    <div class="links">
+      <a href="https://www.goodreads.com/book/show/222886090-beyond-the-ocean-door" target="_blank">View on Goodreads</a>
+      <a href="https://www.amazon.com/Beyond-Ocean-Door-telepathy-adventure-ebook/dp/B0DR7BVYXB" target="_blank">Buy on Amazon</a>
+    </div>
+  </article>
+
+</body>
+</html>

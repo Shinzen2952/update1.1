@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Borrowing System</title>
+
+    <link rel="icon" type="image/png" href="book.png">
+
+   <head> 
+    <link rel ="stylesheet" type="text/css"  href="{{url_for('static', filename='web.css')}}">
+    <script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const books = document.querySelectorAll(".book");
+
+    books.forEach((book, index) => {
+        const addButton = document.createElement("button");
+        addButton.textContent = "Add to Shelf";
+        addButton.classList.add("add-to-shelf");
+
+        addButton.onclick = function () {
+            const title = book.querySelector("h3")?.textContent || `Book ${index + 1}`;
+            const img = book.querySelector("img")?.getAttribute("src") || "";
+
+            fetch("/add_to_shelf", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ title, img })
+            }).then(res => res.json()).then(data => {
+                alert(data.message);
+            });
+        };
+
+        book.appendChild(addButton);
+    });
+});
+</script>
+
+</script>
+
+</head> 
+<body>
+    <div class="navbar">
+        <a href="/Home" id="homeLink" class="active">Home</a>
+        <a href="/authorized" id="authorizedPersonnelLink">Authorized Personnel</a>
+        {% if session.get('user_id') %}
+    <span style="color:white; margin-right: 1px;">Welcome, {{ session.get('username') }}</span>
+    <a href="/logout" id="logoutLink">Logout</a>
+{% else %}
+    <a href="/loging" id="loginLink">Login</a>
+{% endif %}
+
+        <a href="/register" id="registerLink">Register</a>
+        <a href="/Shelf" id="shelfLink">Shelf</a>
+    </div>
+
+    <h1>Book Borrowing System</h1>
+
+    <div id="books-container">
+    <div class="book">
+        <img src="{{url_for('static', filename='beyond the ocean door.jpg')}}" alt="Book 1">
+        <h3>Beyond the ocean door</h3>
+    </div>
+    <div class="book">
+        <img src="{{url_for('static', filename='dark psychology.jpg')}}" alt="Book 2">
+        <h3>Dark Psychology</h3>
+    </div>
+    <div class="book">
+        <img src="{{url_for('static', filename='tsanga.jpg')}}" alt="Book 2">
+        <h3>THE SUBTLE ART OF NOT GIVING A F*CK</h3>
+    </div>
+
+    <!-- more books -->
+</div>
+<style>
+#books-container {
+    display: flex;
+    gap: 20px; /* space between books */
+    padding: 20px;
+    overflow-x: auto; /* enables horizontal scrolling if too many books */
+}
+
+.book {
+    flex: 0 0 auto; /* prevent shrinking, allow side-by-side */
+    width: 200px;    /* adjust size as needed */
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.book img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const books = document.querySelectorAll(".book");
+    books.forEach((book, index) => {
+        // Avoid duplicate buttons
+        if (book.querySelector(".add-to-shelf")) return;
+
+        const addButton = document.createElement("button");
+        addButton.textContent = "Add to Shelf";
+        addButton.classList.add("add-to-shelf");
+
+        addButton.onclick = function () {
+            const title = book.querySelector("h3")?.textContent || `Book ${index + 1}`;
+            const img = book.querySelector("img")?.getAttribute('src') || "";
+
+            fetch("/add_to_shelf", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ title, img })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => alert("Error adding book to shelf."));
+        };
+
+        book.appendChild(addButton);
+    });
+});
+</script>
+
+    
+
+    
+
+</body>
+</html>

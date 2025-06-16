@@ -1,0 +1,239 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+}
+
+    body {
+        background-image: url(library.jpg)
+    }
+
+    h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 5em;
+        transition: 0.3s;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+.book:hover {
+    background-color: #0056b3;
+}
+
+
+    h1:hover {
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
+        0 3px 0 #cccccc, 0 4px 0 #ccc,
+        0 5px 0 #ccc, 0 6px 0 #ccc,
+        0 7px 0 #ccc, 0 8px 0 #ccc,
+        0 9px 0 #ccc, 0 10px 0 #ccc,
+        0 11px 0 #ccc, 0 12px 0 #ccc,
+        0 20px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-image: url(scrap.jpg);
+}
+
+.book-item {
+    display: flex;
+    gap: 20px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-item img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+.book-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.book-info p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95em;
+}
+
+
+    .navbar {
+        background-color: #343a40;
+        overflow: hidden;
+        background-image: url(black.jpg);
+        height: 100px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #d67a02;
+    }   
+
+    
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #closeBtn {
+        position: relative;
+        bottom: 115px;
+        right: 15px;
+    }
+
+    .form-container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+
+    .form-container h3 {
+        text-align: center;
+        color: #007bff;
+    }
+
+    .form-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #0056b3;
+    }
+
+
+    .book-list {
+        width: 70%;
+        margin-left: 60px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        background-color: white;
+    }
+
+    .book {
+        margin: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 200px;
+        text-align: center;
+        flex-shrink: 0;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .book:hover {
+        background-color: lightblue;
+    }
+
+    .book img {
+        width: 150px;
+        height: 200px;
+        position: relative;
+
+    }
+
+    .activity-log {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        max-height: 300px;
+    }
+
+    .activity-log h3 {
+        color: #007bff;
+    }
+
+    .activity-entry {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .activity-entry span {
+        font-weight: bold;
+    }
+
+    .footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        margin-bottom: 90px;
+    }
+
+    
+   
+
+
+
+
+    .add-to-shelf {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-shelf:hover {
+    background-color: #0056b3;
+}
